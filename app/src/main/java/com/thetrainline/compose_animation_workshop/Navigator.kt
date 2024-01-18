@@ -31,17 +31,13 @@ import com.thetrainline.compose_animation_workshop.animations.AnimateAsStateScre
 import com.thetrainline.compose_animation_workshop.animations.AnimateContentSizeScreen
 import com.thetrainline.compose_animation_workshop.animations.AnimatedContentScreen
 import com.thetrainline.compose_animation_workshop.animations.AnimatedVisibilityScreen
-import com.thetrainline.compose_animation_workshop.animations.CrossfadeScreen
-import com.thetrainline.compose_animation_workshop.animations.InfiniteTransitionScreen
 
 enum class Screen(val title: String) {
     ComposeAnimations("Compose Animation"),
     AnimateAsState("animate*AsState"),
     AnimateContentSize("AnimateContentSize"),
     AnimatedContent("AnimatedContent"),
-    AnimatedVisibility("AnimatedVisibility"),
-    Crossfade("Crossfade"),
-    InfiniteTransition("InfiniteTransition"),
+    AnimatedVisibility("AnimatedVisibility")
 }
 
 @Composable
@@ -68,8 +64,6 @@ fun Navigator() {
             Screen.AnimateContentSize -> AnimateContentSizeScreen(navigateTo)
             Screen.AnimatedContent -> AnimatedContentScreen(navigateTo)
             Screen.AnimatedVisibility -> AnimatedVisibilityScreen(navigateTo)
-            Screen.Crossfade -> CrossfadeScreen(navigateTo)
-            Screen.InfiniteTransition -> InfiniteTransitionScreen(navigateTo)
         }
     }
 }
