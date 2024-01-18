@@ -7,7 +7,9 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -24,13 +26,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.thetrainline.compose_animation_workshop.animations.AnimateAsState
 import com.thetrainline.compose_animation_workshop.animations.AnimateContentSize
 import com.thetrainline.compose_animation_workshop.animations.AnimatedContent
 import com.thetrainline.compose_animation_workshop.animations.AnimatedVisibility
 import com.thetrainline.compose_animation_workshop.animations.Crossfade
 import com.thetrainline.compose_animation_workshop.animations.InfiniteTransition
-import com.thetrainline.compose_animation_workshop.animations.Transition
 
 enum class Screen(val title: String) {
     ComposeAnimations("Compose Animation"),
@@ -40,7 +42,6 @@ enum class Screen(val title: String) {
     AnimatedVisibility("AnimatedVisibility"),
     Crossfade("Crossfade"),
     InfiniteTransition("InfiniteTransition"),
-    Transition("Transition")
 }
 
 @Composable
@@ -69,7 +70,6 @@ fun Navigator() {
             Screen.AnimatedVisibility -> AnimatedVisibility(navigateTo)
             Screen.Crossfade -> Crossfade(navigateTo)
             Screen.InfiniteTransition -> InfiniteTransition(navigateTo)
-            Screen.Transition -> Transition(navigateTo)
         }
     }
 }
@@ -77,6 +77,7 @@ fun Navigator() {
 @Composable
 fun Screen(
     screen: Screen,
+    description: String? = null,
     navigateTo: (Screen) -> Unit,
     content: @Composable () -> Unit,
 ) {
@@ -110,9 +111,15 @@ fun Screen(
             )
         }
     ) {
-        Box(
-            modifier = Modifier.padding(it)
+        Column(
+            modifier = Modifier.padding(it).padding(horizontal = 16.dp)
         ) {
+            description?.let {
+                Text(
+                    text = description
+                )
+            }
+            Spacer(modifier = Modifier.height(24.dp))
             content()
         }
     }
