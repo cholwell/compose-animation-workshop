@@ -1,13 +1,5 @@
-
 package com.thetrainline.compose_animation_workshop.animations
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.SizeTransform
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -70,26 +62,10 @@ private fun AnimatedContentExample() {
             )
         }
         Spacer(modifier = Modifier.width(12.dp))
-        AnimatedContent(
-            targetState = count,
-            label = "count",
-            transitionSpec = {
-                when {
-                    targetState > initialState -> {
-                        slideInVertically { height -> height } + fadeIn() togetherWith slideOutVertically { height -> -height } + fadeOut()
-                    }
-                    else -> {
-                        slideInVertically { height -> -height } + fadeIn() togetherWith slideOutVertically { height -> height } + fadeOut()
-                    }
-                }
-                .using(SizeTransform(clip = false))
-            }
-        ) {
-            Text(
-                text = "$it",
-                style = MaterialTheme.typography.headlineLarge
-            )
-        }
+        Text(
+            text = "$count",
+            style = MaterialTheme.typography.headlineLarge
+        )
         Spacer(modifier = Modifier.width(12.dp))
         IconButton(
             onClick = {

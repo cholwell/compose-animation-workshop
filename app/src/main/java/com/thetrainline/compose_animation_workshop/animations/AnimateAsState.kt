@@ -1,7 +1,5 @@
 package com.thetrainline.compose_animation_workshop.animations
 
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -41,19 +39,17 @@ private fun AnimateFloatAsStateExample() {
     var opacityValue by remember {
         mutableFloatStateOf(0f)
     }
-    val opacity by animateFloatAsState(targetValue = opacityValue, label = "opacity")
 
     var widthValue by remember {
         mutableStateOf(0.dp)
     }
-    val width by animateDpAsState(targetValue = widthValue, label = "width")
 
     Box(
         modifier = Modifier
             .height(256.dp)
-            .width(width)
+            .width(widthValue)
             .background(
-                color = MaterialTheme.colorScheme.primary.copy(alpha = opacity),
+                color = MaterialTheme.colorScheme.primary.copy(alpha = opacityValue),
                 shape = MaterialTheme.shapes.medium
             )
     )

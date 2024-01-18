@@ -1,6 +1,5 @@
 package com.thetrainline.compose_animation_workshop.animations
 
-import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -49,7 +48,6 @@ private fun AnimateContentSizeExample() {
                         color = MaterialTheme.colorScheme.primary,
                         shape = MaterialTheme.shapes.medium
                     )
-                    .animateContentSize()
                     .height(if (expanded) 128.dp else 64.dp)
                     .fillMaxWidth()
                     .clickable(

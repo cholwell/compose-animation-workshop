@@ -1,6 +1,5 @@
 package com.thetrainline.compose_animation_workshop.animations
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -75,9 +74,7 @@ private fun AnimatedVisibilityExample() {
                 contentDescription = null
             )
         }
-        AnimatedVisibility(
-            visible = expanded
-        ) {
+        if (expanded) {
             Column(
                 modifier = Modifier.padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
