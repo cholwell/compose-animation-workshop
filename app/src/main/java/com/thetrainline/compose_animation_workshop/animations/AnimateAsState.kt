@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.thetrainline.compose_animation_workshop.Screen
 
 @Composable
-fun AnimateAsState(
+fun AnimateAsStateScreen(
     navigateTo: (Screen) -> Unit
 ) {
     Screen(
@@ -30,12 +30,12 @@ fun AnimateAsState(
         description = "The animate*AsState functions are the simplest animation APIs in Compose for animating a single value. You only provide the target value (or end value), and the API starts animation from the current value to the specified value.",
         navigateTo = navigateTo
     ) {
-        AnimateFloatAsState()
+        AnimateFloatAsStateExample()
     }
 }
 
 @Composable
-private fun AnimateFloatAsState() {
+private fun AnimateFloatAsStateExample() {
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp - 32.dp
 
     var opacityValue by remember {

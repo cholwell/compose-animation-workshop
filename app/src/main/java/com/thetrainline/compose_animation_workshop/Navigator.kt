@@ -27,12 +27,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.thetrainline.compose_animation_workshop.animations.AnimateAsState
-import com.thetrainline.compose_animation_workshop.animations.AnimateContentSize
-import com.thetrainline.compose_animation_workshop.animations.AnimatedContent
-import com.thetrainline.compose_animation_workshop.animations.AnimatedVisibility
-import com.thetrainline.compose_animation_workshop.animations.Crossfade
-import com.thetrainline.compose_animation_workshop.animations.InfiniteTransition
+import com.thetrainline.compose_animation_workshop.animations.AnimateAsStateScreen
+import com.thetrainline.compose_animation_workshop.animations.AnimateContentSizeScreen
+import com.thetrainline.compose_animation_workshop.animations.AnimatedContentScreen
+import com.thetrainline.compose_animation_workshop.animations.AnimatedVisibilityScreen
+import com.thetrainline.compose_animation_workshop.animations.CrossfadeScreen
+import com.thetrainline.compose_animation_workshop.animations.InfiniteTransitionScreen
 
 enum class Screen(val title: String) {
     ComposeAnimations("Compose Animation"),
@@ -64,12 +64,12 @@ fun Navigator() {
     ) { screen ->
         when (screen) {
             Screen.ComposeAnimations -> ComposeAnimations(navigateTo)
-            Screen.AnimateAsState -> AnimateAsState(navigateTo)
-            Screen.AnimateContentSize -> AnimateContentSize(navigateTo)
-            Screen.AnimatedContent -> AnimatedContent(navigateTo)
-            Screen.AnimatedVisibility -> AnimatedVisibility(navigateTo)
-            Screen.Crossfade -> Crossfade(navigateTo)
-            Screen.InfiniteTransition -> InfiniteTransition(navigateTo)
+            Screen.AnimateAsState -> AnimateAsStateScreen(navigateTo)
+            Screen.AnimateContentSize -> AnimateContentSizeScreen(navigateTo)
+            Screen.AnimatedContent -> AnimatedContentScreen(navigateTo)
+            Screen.AnimatedVisibility -> AnimatedVisibilityScreen(navigateTo)
+            Screen.Crossfade -> CrossfadeScreen(navigateTo)
+            Screen.InfiniteTransition -> InfiniteTransitionScreen(navigateTo)
         }
     }
 }
@@ -77,7 +77,7 @@ fun Navigator() {
 @Composable
 fun Screen(
     screen: Screen,
-    description: String? = null,
+    description: String,
     navigateTo: (Screen) -> Unit,
     content: @Composable () -> Unit,
 ) {
@@ -114,7 +114,7 @@ fun Screen(
         Column(
             modifier = Modifier.padding(it).padding(horizontal = 16.dp)
         ) {
-            description?.let {
+            description.let {
                 Text(
                     text = description
                 )

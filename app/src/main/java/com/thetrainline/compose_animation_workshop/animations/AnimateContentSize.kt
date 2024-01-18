@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.thetrainline.compose_animation_workshop.Screen
 
 @Composable
-fun AnimateContentSize(
+fun AnimateContentSizeScreen(
     navigateTo: (Screen) -> Unit
 ) {
     Screen(
@@ -29,12 +29,12 @@ fun AnimateContentSize(
         description = "The animateContentSize modifier animates a size change. Modifier order matters! Make sure you place it before any size modifiers.",
         navigateTo = navigateTo
     ) {
-        AnimateContentSize()
+        AnimateContentSizeExample()
     }
 }
 
 @Composable
-private fun AnimateContentSize() {
+private fun AnimateContentSizeExample() {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
