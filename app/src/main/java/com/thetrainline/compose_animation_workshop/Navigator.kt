@@ -35,8 +35,8 @@ import com.thetrainline.compose_animation_workshop.animations.AnimatedVisibility
 enum class Screen(val title: String) {
     ComposeAnimations("Compose Animation"),
     AnimateAsState("animate*AsState"),
-    AnimateContentSize("AnimateContentSize"),
     AnimatedContent("AnimatedContent"),
+    AnimateContentSize("AnimateContentSize"),
     AnimatedVisibility("AnimatedVisibility")
 }
 
